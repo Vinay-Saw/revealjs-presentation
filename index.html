@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <title>Quarterly Earnings Report - Financial Analysis</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/black.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/monokai.min.css">
+
+    <script src="data.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+
+        <!-- Slide 1: Title Slide -->
+        <section>
+          <h1>Quarterly Earnings Report</h1>
+          <h3>Financial Analysis of Movie Revenue Data</h3>
+          <p>
+            <small>Presented by Technical Consultant</small><br>
+            <small>Contact: <a href="mailto:23f2005452@ds.study.iitm.ac.in">23f2005452@ds.study.iitm.ac.in</a></small>
+          </p>
+          <aside class="notes">
+            Welcome everyone. Today I will be presenting the quarterly earnings report based on our comprehensive movie revenue dataset.
+          </aside>
+        </section>
+
+        <!-- Slide 2: Agenda -->
+        <section>
+          <h2>Agenda</h2>
+          <ul>
+            <li class="fragment">Market Overview</li>
+            <li class="fragment">Revenue Trends</li>
+            <li class="fragment">Top Performers</li>
+            <li class="fragment">Financial Metrics</li>
+            <li class="fragment">Data Analysis Methodology</li>
+          </ul>
+          <aside class="notes">
+            We will cover the market overview, analyze revenue trends over the years, look at top performing movies, discuss key financial metrics, and review our analysis methodology.
+          </aside>
+        </section>
+
+        <!-- Slide 3: Executive Summary (HTML for robustness) -->
+        <section>
+            <h2>Executive Summary</h2>
+            <ul>
+                <li><strong>Total Movies Analyzed:</strong> <span id="total-movies"></span></li>
+                <li><strong>Total Worldwide Gross:</strong> <span id="total-gross"></span></li>
+                <li><strong>Average Budget:</strong> <span id="average-budget"></span></li>
+            </ul>
+            <blockquote style="margin-top: 20px; font-style: italic; border-left: 5px solid #ccc; padding-left: 10px;">
+                "The movie industry continues to show resilience and growth potential despite market fluctuations."
+            </blockquote>
+        </section>
+
+        <!-- Slide 4: Revenue Trend Chart -->
+        <section>
+          <h2>Yearly Revenue Trends</h2>
+          <canvas id="revenueChart"></canvas>
+          <aside class="notes">
+            This chart visualizes the total worldwide gross revenue compared to production budgets over the years. You can see the upward trend in both investment and return.
+          </aside>
+        </section>
+
+        <!-- Slide 5: Top Performers -->
+        <section>
+          <h2>Top 5 Movies by Gross Revenue</h2>
+          <table style="font-size: 0.7em;">
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Movie Title</th>
+                <th>Year</th>
+                <th>Worldwide Gross</th>
+              </tr>
+            </thead>
+            <tbody id="top-movies-table">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </section>
+
+        <!-- Slide 6: Financial Formulas (MathJax) -->
+        <section>
+          <h2>Key Financial Formulas</h2>
+          <p>We utilize the Return on Investment (ROI) metric to evaluate profitability.</p>
+          <p>
+            \[
+            ROI = \frac{\text{Net Profit}}{\text{Cost of Investment}} \times 100
+            \]
+          </p>
+          <p>
+            Where:
+            \[
+            \text{Net Profit} = \text{Worldwide Gross} - \text{Production Budget}
+            \]
+          </p>
+          <aside class="notes">
+            Understanding ROI is crucial for future investment strategies. This formula helps us normalize success across different budget levels.
+          </aside>
+        </section>
+
+        <!-- Slide 7: High ROI Movies -->
+        <section>
+            <h2>Top 5 Movies by ROI</h2>
+            <p style="font-size: 0.6em;">(Budget > $1M)</p>
+            <table style="font-size: 0.7em;">
+              <thead>
+                <tr>
+                  <th>Movie Title</th>
+                  <th>Year</th>
+                  <th>ROI (%)</th>
+                </tr>
+              </thead>
+              <tbody id="top-roi-table">
+                <!-- Populated by JS -->
+              </tbody>
+            </table>
+        </section>
+
+        <!-- Slide 8: Code Sample -->
+        <section>
+          <h2>Data Analysis Code</h2>
+          <p>We used Python and Pandas for data processing.</p>
+          <pre><code class="python" data-trim data-noescape>
+import pandas as pd
+
+# Calculate ROI
+df['ROI'] = (df['Worldwide Gross'] - df['Production Budget']) / \
+            df['Production Budget'] * 100
+
+# Filter and sort
+top_roi = df[df['Production Budget'] > 1000000] \
+    .sort_values('ROI', ascending=False) \
+    .head(5)
+          </code></pre>
+          <aside class="notes">
+            Here is a snippet of the Python code used to calculate the ROI and filter the top performing movies.
+          </aside>
+        </section>
+
+        <!-- Slide 9: Conclusion (Markdown Slide) -->
+        <section data-markdown>
+            <textarea data-template>
+                ## Conclusion
+
+                *   <!-- .element: class="fragment" --> Blockbusters drive massive revenue.
+                *   <!-- .element: class="fragment" --> Strategic low-budget films can yield massive ROI.
+                *   <!-- .element: class="fragment" --> The industry is growing.
+
+                <small style="margin-top: 50px; display: block;">Dataset Credit: [Kaggle - Movie Revenue Data](https://www.kaggle.com/datasets/wahaba/movie-revenue-data/data)</small>
+            </textarea>
+        </section>
+
+      </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/notes/notes.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/markdown/markdown.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/highlight/highlight.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/plugin/math/math.min.js"></script>
+
+    <script>
+      // Initialize Reveal and wait for promise
+      Reveal.initialize({
+        hash: true,
+        plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealMath ]
+      }).then(() => {
+        // Populate Data once Reveal is ready
+
+        // Format currency
+        const fmt = new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 });
+
+        // Executive Summary
+        document.getElementById('total-movies').textContent = movieData.total_movies;
+        document.getElementById('total-gross').textContent = fmt.format(movieData.total_gross);
+        document.getElementById('average-budget').textContent = fmt.format(movieData.average_budget);
+
+        // Top Movies Table
+        const topMoviesTable = document.getElementById('top-movies-table');
+        movieData.top_movies.forEach((movie, index) => {
+            const row = document.createElement('tr');
+
+            const rankCell = document.createElement('td');
+            rankCell.textContent = index + 1;
+            row.appendChild(rankCell);
+
+            const titleCell = document.createElement('td');
+            titleCell.textContent = movie['Movie Title'];
+            row.appendChild(titleCell);
+
+            const yearCell = document.createElement('td');
+            yearCell.textContent = movie.Year;
+            row.appendChild(yearCell);
+
+            const grossCell = document.createElement('td');
+            grossCell.textContent = fmt.format(movie['Worldwide Gross']);
+            row.appendChild(grossCell);
+
+            topMoviesTable.appendChild(row);
+        });
+
+        // Top ROI Table
+        const topRoiTable = document.getElementById('top-roi-table');
+        movieData.top_roi.forEach((movie) => {
+            const row = document.createElement('tr');
+
+            const titleCell = document.createElement('td');
+            titleCell.textContent = movie['Movie Title'];
+            row.appendChild(titleCell);
+
+            const yearCell = document.createElement('td');
+            yearCell.textContent = movie.Year;
+            row.appendChild(yearCell);
+
+            const roiCell = document.createElement('td');
+            roiCell.textContent = Math.round(movie.ROI).toLocaleString() + '%';
+            row.appendChild(roiCell);
+
+            topRoiTable.appendChild(row);
+        });
+
+        // Chart
+        const ctx = document.getElementById('revenueChart').getContext('2d');
+        const years = movieData.yearly_revenue.map(d => d.Year);
+        const gross = movieData.yearly_revenue.map(d => d['Worldwide Gross']);
+        const budget = movieData.yearly_revenue.map(d => d['Production Budget']);
+
+        new Chart(ctx, {
+            type: 'line',
+            data: {
+                labels: years,
+                datasets: [{
+                    label: 'Worldwide Gross',
+                    data: gross,
+                    borderColor: 'rgba(75, 192, 192, 1)',
+                    backgroundColor: 'rgba(75, 192, 192, 0.2)',
+                    borderWidth: 2
+                }, {
+                    label: 'Production Budget',
+                    data: budget,
+                    borderColor: 'rgba(255, 99, 132, 1)',
+                    backgroundColor: 'rgba(255, 99, 132, 0.2)',
+                    borderWidth: 2
+                }]
+            },
+            options: {
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        ticks: {
+                            callback: function(value) {
+                                return '$' + value / 1000000 + 'M';
+                            }
+                        }
+                    }
+                }
+            }
+        });
+      });
+    </script>
+  </body>
+</html>
